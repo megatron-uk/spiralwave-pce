@@ -1,0 +1,26 @@
+String formatting
+=================
+
+Strings seems to start (or end?) with 0xFD.
+
+Strings seem to have x and y co-ordinates. e.g.
+
+FD 04 10 30 31 32 33 34 35 FF
+|  |  |                    \
+|  |  |                     - End of string
+|  |  \_ Y-position of string
+|  \_ X-position of string
+\_ Start of string - though this could equally be the end of the last string.
+
+The above would print 012345 at column #4 (left is 0), row #10 (top is 0). 
+
+The value 0xF9 seems to activate the alternate font table values.
+
+Example String
+===============
+
+File Location: 0x6745 
+Bytes: FD 04 08 E1 AD CC 0B DB
+Position: 4th row down, 8 columns in:
+Japanese text: パスワ-ト゛
+English translation: "Password"
